@@ -1,29 +1,3 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-
-/* 
-*  Header
-   -  Logo
-   -  Home
-   -  Nav items
-
-   Body
-
-    - Items
-    - search bar
-    - Filters
-
-   Fotter
-    - copy rights
-    - about 
-    - career
-
-*/
-
-const styleCard = {
-  backgroundColor: "#f1f1f1",
-};
-
 const resObj = [
   {
     info: {
@@ -34,9 +8,9 @@ const resObj = [
       areaName: "Kakinada",
       costForTwo: "₹250 for two",
       cuisines: ["Biryani", "North Indian", "South Indian", "Chinese"],
-      avgRating: 4.1,
+      avgRating: 3.1,
       parentId: "12732",
-      avgRatingString: "4.1",
+      avgRatingString: "3.1",
       totalRatingsString: "10K+",
       promoted: true,
       adTrackingId:
@@ -101,9 +75,9 @@ const resObj = [
       areaName: "Kakinada",
       costForTwo: "₹350 for two",
       cuisines: ["Pizzas"],
-      avgRating: 4.1,
+      avgRating: 3.1,
       parentId: "721",
-      avgRatingString: "4.1",
+      avgRatingString: "3.1",
       totalRatingsString: "1K+",
       sla: {
         deliveryTime: 35,
@@ -180,9 +154,9 @@ const resObj = [
       areaName: "Suryanarayana Puram",
       costForTwo: "₹450 for two",
       cuisines: ["Arabian", "Lebanese"],
-      avgRating: 4.2,
+      avgRating: 3.8,
       parentId: "327428",
-      avgRatingString: "4.2",
+      avgRatingString: "3.2",
       totalRatingsString: "5K+",
       sla: {
         deliveryTime: 19,
@@ -243,9 +217,9 @@ const resObj = [
       areaName: "Kakinada",
       costForTwo: "₹350 for two",
       cuisines: ["Biryani", "Chinese", "South Indian"],
-      avgRating: 4.2,
+      avgRating: 3.2,
       parentId: "365786",
-      avgRatingString: "4.2",
+      avgRatingString: "3.2",
       totalRatingsString: "1K+",
       promoted: true,
       adTrackingId:
@@ -309,10 +283,10 @@ const resObj = [
       areaName: "Bhanugudi",
       costForTwo: "₹250 for two",
       cuisines: ["South Indian"],
-      avgRating: 4.5,
+      avgRating: 3.5,
       veg: true,
       parentId: "196192",
-      avgRatingString: "4.5",
+      avgRatingString: "3.5",
       totalRatingsString: "100+",
       sla: {
         deliveryTime: 19,
@@ -389,10 +363,10 @@ const resObj = [
       areaName: "Rama Rao Peta",
       costForTwo: "₹200 for two",
       cuisines: ["South Indian"],
-      avgRating: 4.3,
+      avgRating: 3.3,
       veg: true,
       parentId: "196189",
-      avgRatingString: "4.3",
+      avgRatingString: "3.3",
       totalRatingsString: "10K+",
       sla: {
         deliveryTime: 18,
@@ -1811,69 +1785,4 @@ const resObj = [
   },
 ];
 
-const RestaurantCard = (props) => {
-  console.log(props.restaruantObj);
-  const { name, cloudinaryImageId, cuisines, locality, avgRatingString } =
-    props.restaruantObj.info;
-  return (
-    <div className="res-card" style={styleCard}>
-      <img
-        className="res-logo"
-        alt-tab="res-logo"
-        src={
-          "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" +
-          cloudinaryImageId
-        }
-      />
-      <h3>{name}</h3>
-      <h5>{cuisines.join(", ")}</h5>
-      <h6>{avgRatingString}</h6>
-    </div>
-  );
-};
-
-const Header = () => {
-  return (
-    <div className="header1">
-      <div className="logo-container">
-        <img
-          className="logo"
-          src="https://www.logodesign.net/logo/smoking-burger-with-lettuce-3624ld.png"
-        />
-      </div>
-      <div className="nav-items">
-        <ul>
-          <li>Home</li>
-          <li>Contact us</li>
-          <li>About us</li>
-          <li>Cart</li>
-        </ul>
-      </div>
-    </div>
-  );
-};
-
-const Body = () => {
-  return (
-    <div className="body">
-      <div className="search">Search</div>
-      <div className="res-container">
-        {resObj.map((restaruant) => (
-          <RestaurantCard restaruantObj={restaruant} />
-        ))}
-      </div>
-    </div>
-  );
-};
-
-const AppLayout = () => {
-  return (
-    <div className="app">
-      <Header />
-      <Body />
-    </div>
-  );
-};
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<AppLayout />);
+export default resObj;
