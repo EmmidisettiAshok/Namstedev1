@@ -3,7 +3,7 @@ const styleCard = {
     backgroundColor: "#f1f1f1",
   };
 const RestaurantCard = (props) => {
-  console.log(props.restaruantObj);
+  //console.log(props.restaruantObj);
   const { name, cloudinaryImageId, cuisines, locality, avgRatingString } =
     props.restaruantObj.info;
   return (
