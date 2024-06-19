@@ -2,10 +2,9 @@
   "name": "namereact",
   "version": "1.0.0",
   "description": "This is Nameste React by Ashok",
-  
   "scripts": {
-    "start":"parcel index.html",
-    "build":"parcel build index.html",
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
     "test": "jest"
   },
   "keywords": [
@@ -13,15 +12,18 @@
   ],
   "author": "Ashok E",
   "license": "ISC",
+  "type": "module",
   "devDependencies": {
+    "@types/react": "^18.3.3",
     "parcel": "^2.12.0",
     "process": "^0.11.10"
   },
   "dependencies": {
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.23.1"
   },
-  "browserslist":[
+  "browserslist": [
     "last 10 Chrome versions"
   ]
 }
