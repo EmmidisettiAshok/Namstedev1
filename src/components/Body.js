@@ -2,6 +2,7 @@ import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   let [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -22,12 +23,18 @@ const Body = () => {
     const jsonData = await data.json();
     console.log(jsonData?.data);
     setListOfRestaurants(
-      jsonData?.data?.success?.cards[3]?.gridWidget?.gridElements?.infoWithStyle?.restaurants
+      jsonData?.data?.success?.cards[3]?.gridWidget?.gridElements?.infoWithStyle
+        ?.restaurants
     );
     setFilterListOfRestaurants(
-      jsonData?.data?.success?.cards[3]?.gridWidget?.gridElements?.infoWithStyle?.restaurants
+      jsonData?.data?.success?.cards[3]?.gridWidget?.gridElements?.infoWithStyle
+        ?.restaurants
     );
-    console.log(jsonData.data.success.cards[3]);
+    console.log(
+      "updated response ==== " +
+        jsonData?.data?.success?.cards[3]?.gridWidget?.gridElements
+          ?.infoWithStyle
+    );
   };
 
   // const fetchData = async () => {
@@ -45,6 +52,9 @@ const Body = () => {
   //     json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants
   //   );
   // };
+  const online = useOnlineStatus();
+  console.log("status is : "+online);
+  if (online === false) return <h1>Looks like your internet is off</h1>;
   if (listOfRestaurants === null) {
     return <Shimmer />;
   }
