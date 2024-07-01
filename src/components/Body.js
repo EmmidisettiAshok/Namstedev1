@@ -18,21 +18,21 @@ const Body = () => {
   console.log("outside body method");
   const fetchData = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/mapi/homepage/getCards?lat=16.96160&lng=82.23260&page_type=DESKTOP_WEB_LISTING"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.7272349&lng=83.3021004&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const jsonData = await data.json();
     console.log(jsonData?.data);
     setListOfRestaurants(
-      jsonData?.data?.success?.cards[3]?.gridWidget?.gridElements?.infoWithStyle
+      jsonData?.data?.cards[1]?.card.card.gridElements?.infoWithStyle
         ?.restaurants
     );
     setFilterListOfRestaurants(
-      jsonData?.data?.success?.cards[3]?.gridWidget?.gridElements?.infoWithStyle
+      jsonData?.data?.cards[1]?.card.card.gridElements?.infoWithStyle
         ?.restaurants
     );
     console.log(
       "updated response ==== " +
-        jsonData?.data?.success?.cards[3]?.gridWidget?.gridElements
+        jsonData?.data?.cards[1]?.card.card.gridElements
           ?.infoWithStyle
     );
   };
@@ -61,18 +61,18 @@ const Body = () => {
   //listOfRestaurants.length === 0 ? <Shimmer/> :
   return (
     <div className="body">
-      <div className="filter">
-        <div className="search">
+      <div className="flex">
+        <div className="p-4">
           <input
             type="text"
-            className="input-search"
+            className="border border-solid border-black"
             value={searchText}
             onChange={(e) => {
               setSearchText(e.target.value);
             }}
           ></input>
           <button
-            className="search-btn"
+            className="px-4 bg-green-100 mx-2 rounded-sm"
             onClick={() => {
               const searchList = listOfRestaurants?.filter((res) =>
                 res.info.name.toLowerCase().includes(searchText.toLowerCase())
@@ -86,8 +86,9 @@ const Body = () => {
             Search
           </button>
         </div>
+        <div className="flex items-center">
         <button
-          className="filter_btn"
+          className="px-2 bg-gray-100 rounded-sm"
           onClick={() => {
             const fitleredRestaurants = listOfRestaurants?.filter(
               (res) => res.info.avgRating > 4
@@ -99,8 +100,9 @@ const Body = () => {
         >
           Top Rated Restaurants
         </button>
+        </div>
       </div>
-      <div className="res-container">
+      <div className="flex flex-wrap">
         {filterListOfRestaurants?.map((restaruant) => (
           <Link
             to={"/restaurant/" + restaruant?.info?.id}

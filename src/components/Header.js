@@ -14,28 +14,28 @@ const Header = () => {
   console.log("body render");
   const onlineStatus = useOnlineStatus();
   return (
-    <div className="header1">
-      <div className="logo-container">
+    <div className="flex justify-between  bg-pink-100 shadow-sm mb-2 sm:bg-yellow-100">
+      <div className="w-20">
         <img className="logo" src={LOGO_URL} />
       </div>
-      <div className="nav-items">
-        <ul>
-          <li>Online : {onlineStatus ? "true" : "false" } </li>
+      <div className="flex items-center">
+        <ul className="flex m-4">
+          <li className="px-2">Online : {onlineStatus ? "true" : "false" } </li>
           <li>
             <Link to="/">Home</Link>
           </li>
-          <li>
+          <li className="px-2">
             <a href="/contact">Contact us</a>
           </li>
-          <li>
+          <li className="px-2">
             <Link to="/about">About</Link>
           </li>
-          <li>Cart</li>
-          <li>
+          <li className="px-2">Cart</li>
+          <li className="px-2">
             <Link to="/grocery">Grocery</Link>
           </li>
           <button
-            className="login-btn"
+            className="px-2"
             onClick={() => {
               setLoginBtn(loginBtn === "Login" ? "Logout" : "Login");
             }}

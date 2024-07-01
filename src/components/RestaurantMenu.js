@@ -26,11 +26,14 @@ const RestaurantMenu = () => {
   //   //console.log("new array"+resInfo);
   // };
   if (resDatainfo === null) return <Shimmer />;
+  console.log( resDatainfo?.cards[2]?.card?.card?.info);
   const { name, cuisines, costForTwoMessage } =
     resDatainfo?.cards[2]?.card?.card?.info;
-  console.log(resDatainfo?.cards[5]);
+
+    console.log(resDatainfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card);
+  
   const { itemCards } =
-    resDatainfo?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
+    resDatainfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
       ?.card;
   // if(itemCards === null) return <Shimmer/> ;
   return (
